@@ -1,0 +1,48 @@
+# Copyright (C) 2018 prtksxna
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: Iro 1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iro\n"
+"POT-Creation-Date: 2018-08-17 07:54:52+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-08-17 14:06+0530\n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.1.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"Language: hi\n"
+
+#: iro.php:54 iro.php:75
+msgid "Foreground color"
+msgstr "अग्रभूमि रंग"
+
+#: iro.php:56
+msgid "Foreground color that can be used by the theme"
+msgstr "अग्रभूमि रंग, जो थीम के द्वारा इस्तेमाल किया जा सकता है"
+
+#: iro.php:59 iro.php:82
+msgid "Background color"
+msgstr "पीछे का रंग"
+
+#: iro.php:61
+msgid "Background color that can be used by the theme"
+msgstr "पीछे का रंग, जो थीम के द्वारा इस्तेमाल किया जा सकता है"
+
+#. Plugin Name of the plugin/theme
+msgid "Iro"
+msgstr "ईरो"
+
+#. Description of the plugin/theme
+msgid "Add color to posts, tags, and categories"
+msgstr "पोस्ट, टैग और श्रेणियों में रंग जोड़ें"
+
+#. Author of the plugin/theme
+msgid "prtksxna"
+msgstr "प्रतीक"
+
+#. Author URI of the plugin/theme
+msgid "http://prtksxna.com"
+msgstr "http://prtksxna.com"
