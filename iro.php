@@ -12,21 +12,6 @@ License:      MIT
 License URI:
 */
 
-/*
-Links to relevant documentation:
-https://pippinsplugins.com/adding-custom-meta-fields-to-taxonomies/
-https://make.wordpress.org/core/2015/09/04/taxonomy-term-metadata-proposal/
-https://codex.wordpress.org/Version_4.4#For_Developers
-https://www.sitepoint.com/wordpress-term-meta/
-https://www.presstigers.com/how-to-add-wordpress-category-extra-fields/
-https://www.ibenic.com/custom-fields-wordpress-taxonomies/
-https://developer.wordpress.org/plugins/metadata/custom-meta-boxes/
-*/
-
-// TODO Decide code style and indentations
-// TODO Comment on ibenic.com
-// TODO Set better defaults for the color
-
 /* i18n */
 function iro_load_plugin_textdomain() {
     load_plugin_textdomain( 'iro', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
