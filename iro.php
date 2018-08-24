@@ -40,12 +40,12 @@ function iro_add_colors() {
 	?>
   <div class="form-field">
     <label for="fg_color"><?php _e( 'Foreground color', 'iro' ); ?></label>
-    <input type="color" name="fg_color" id="fg_color" value="">
+    <input type="color" name="fg_color" id="fg_color" value="#000000">
     <p class="description"><?php _e( 'Foreground color that can be used by the theme','iro' ); ?></p>
   </div>
 	<div class="form-field">
 		<label for="bg_color"><?php _e( 'Background color', 'iro' ); ?></label>
-		<input type="color" name="bg_color" id="bg_color" value="">
+		<input type="color" name="bg_color" id="bg_color" value="#ffffff">
 		<p class="description"><?php _e( 'Background color that can be used by the theme','iro' ); ?></p>
 	</div>
 <?php
@@ -113,11 +113,19 @@ function iro_add_meta_box() {
 function iro_meta_box_html( $post ) {
   $bg_color = get_post_meta($post->ID, 'bg_color', true);
   $fg_color = get_post_meta($post->ID, 'fg_color', true);
+
+  // Set default colors if nothing is set
+  if ( $bg_color === "" ) {
+    $bg_color = "#ffffff";
+  }
+  if ( $fg_color === "" ) {
+    $fg_color = "#000000";
+  }
   ?>
   <label for="fg_color"><?php _e( 'Foreground color', 'iro' ); ?></label>
   <input type="color" name="fg_color" id="fg_color" value="<?php echo $fg_color; ?>">
   <p class="description"><?php _e( 'Foreground color that can be used by the theme','iro' ); ?></p>
-  <hr>
+
   <label for="bg_color"><?php _e( 'Background color', 'iro' ); ?></label>
   <input type="color" name="bg_color" id="bg_color" value="<?php echo $bg_color; ?>">
   <p class="description"><?php _e( 'Background color that can be used by the theme','iro' ); ?></p>
