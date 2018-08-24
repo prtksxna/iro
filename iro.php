@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name:  Iro
-Plugin URI:
+Plugin URI:   https://github.com/twozeroone/iro
 Description:  Add color to posts, tags, and categories
 Version:      1
 Author:       prtksxna
 Author URI:   http://prtksxna.com
 Text Domain:  iro
-Domain Path: /languages
+Domain Path:  /languages
 License:      MIT
-License URI:
+License URI:  https://github.com/twozeroone/iro/blob/master/LICENSE.md
 */
 
 /* i18n */
