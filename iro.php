@@ -80,17 +80,11 @@ function iro_edit_colors( $term ) {
  * Save colors
  */
 function iro_save_colors( $term_id ) {
-  if ( isset( $_POST[ 'fg_color' ] ) ) {
-    $term_fg_color = $_POST[ 'fg_color' ];
-    if ( $term_fg_color ) {
-      update_term_meta( $term_id, 'fg_color', $term_fg_color) ;
-    }
+  if ( iro_get_color( 'fg' ) ) {
+    update_term_meta( $term_id, 'fg_color', iro_get_color( 'fg' ) ) ;
   }
-  if ( isset( $_POST[ 'bg_color' ] ) ) {
-    $term_bg_color = $_POST[ 'bg_color' ];
-    if ( $term_bg_color ) {
-      update_term_meta( $term_id, 'bg_color', $term_bg_color );
-    }
+  if ( iro_get_color( 'bg' ) ) {
+    update_term_meta( $term_id, 'bg_color', iro_get_color( 'bg' ) ) ;
   }
 }
 
@@ -123,11 +117,11 @@ function iro_meta_box_html( $post ) {
   }
   ?>
   <label for="fg_color"><?php _e( 'Foreground color', 'iro' ); ?></label>
-  <input type="color" name="fg_color" id="fg_color" value="<?php echo $fg_color; ?>">
+  <input type="color" name="fg_color" id="fg_color" value="<?php echo esc_attr( $fg_color ); ?>">
   <p class="description"><?php _e( 'Foreground color that can be used by the theme','iro' ); ?></p>
 
   <label for="bg_color"><?php _e( 'Background color', 'iro' ); ?></label>
-  <input type="color" name="bg_color" id="bg_color" value="<?php echo $bg_color; ?>">
+  <input type="color" name="bg_color" id="bg_color" value="<?php echo esc_attr( $bg_color ); ?>">
   <p class="description"><?php _e( 'Background color that can be used by the theme','iro' ); ?></p>
   <?php
 }
@@ -136,18 +130,30 @@ function iro_meta_box_html( $post ) {
  * Save post metadata
  */
 function iro_save_metadata( $post_id ) {
-  if ( isset( $_POST[ 'bg_color' ] ) ) {
-    update_post_meta(
-      $post_id,
-      'bg_color',
-      $_POST[ 'bg_color' ]
-    );
+  if ( iro_get_color( 'bg') ) {
+    update_post_meta( $post_id, 'bg_color', iro_get_color( 'bg') );
   }
-  if ( isset( $_POST[ 'fg_color' ] ) ) {
-    update_post_meta(
-      $post_id,
-      'fg_color',
-      $_POST[ 'fg_color' ]
-    );
+  if ( iro_get_color( 'fg' ) ) {
+    update_post_meta( $post_id, 'fg_color', iro_get_color( 'fg' ) );
+  }
+}
+
+/**
+ * Helper function to check if the color is set in $_POST and if its clean.
+ *
+ * @param string $color The prefix to the color, either 'fg' or 'bg'.
+ * @return string|bool Either a string to save or false if the color is absent
+ *   or not clean.
+ */
+function iro_get_color( $color ) {
+  $key = $color . '_color';
+  if (
+    isset( $_POST[ $key ] ) &&
+    is_null( sanitize_hex_color( $_POST[ $key ] ) ) === false &&
+    sanitize_hex_color( $_POST[ $key ] ) !== ''
+  ) {
+    return sanitize_hex_color( $_POST[ $key ] );
+  } else {
+    return false;
   }
 }
