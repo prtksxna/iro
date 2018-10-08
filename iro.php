@@ -96,7 +96,7 @@ function iro_add_meta_box() {
    'iro_color',
    'Colors',
    'iro_meta_box_html',
-   'post',
+   [ 'post', 'page' ],
    'side'
  );
 }
