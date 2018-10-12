@@ -1,5 +1,5 @@
 === Iro ===
-Contributors: prtksxna
+Contributors: prtksxna, siddr
 Tags: colors, metadata
 Requires at least: 4.4
 Tested up to: 4.9.8
