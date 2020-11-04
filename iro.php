@@ -32,6 +32,9 @@ add_action( 'post_tag_edit_form_fields', 'iro_edit_colors' );
 add_action( 'create_post_tag', 'iro_save_colors' );
 add_action( 'edited_post_tag', 'iro_save_colors' );
 
+add_action('add_meta_boxes_jetpack-portfolio', 'iro_add_meta_box');
+add_action('save_post_jetpack-portfolio', 'iro_save_metadata');
+
 /* Methods */
 /**
  * Add fields for colors
@@ -96,7 +99,7 @@ function iro_add_meta_box() {
    'iro_color',
    'Colors',
    'iro_meta_box_html',
-   [ 'post', 'page' ],
+   [ 'post', 'page', 'jetpack-portfolio' ],
    'side'
  );
 }
